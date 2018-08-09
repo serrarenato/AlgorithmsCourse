@@ -11,10 +11,11 @@ public class Exercise3 {
 		int n = 10; // length of array
 		Integer[] numbers = initialize(n);
 		printer(numbers);
-		numbers = deletandGetSmallerNumber(3, numbers);
+		//numbers = deletandGetSmallerNumber(3, numbers);
+		numbers = deletandGetSmallerNumberBinarySearch(3, numbers);
 		printer(numbers);
 	}
-
+	// with Algorithm N
 	public static Integer[] deletandGetSmallerNumber(int n, Integer[] numbers) {
 		int smallerNumber = 0;
 		Integer[] numbersNew = new Integer[numbers.length - 1];
@@ -29,6 +30,30 @@ public class Exercise3 {
 
 		return numbersNew;
 	}
+	// with Algorithm better than N
+	public static Integer[] deletandGetSmallerNumberBinarySearch(int n, Integer[] numbers) {
+		int smallerNumber = 0;
+		Integer[] numbersNew = new Integer[numbers.length - 1];
+		boolean continuar=true;
+		int posicao=numbers.length/2;
+		while(continuar) {			
+			if (numbers[posicao] > n)
+				posicao=posicao-numbers.length/4;
+			if (numbers[posicao] < n)
+				posicao=posicao+numbers.length/4;
+			if (numbers[posicao] == n) {
+				smallerNumber = numbers[posicao + 1];
+				continuar=false;
+			}
+		}
+		System.out.println("Smaller Number: " + smallerNumber);
+		System.arraycopy(numbers, posicao+1, numbersNew, posicao, numbers.length-1-posicao);
+		System.arraycopy(numbers, 0, numbersNew, 0, posicao);
+		
+
+		return numbersNew;
+	}
+
 
 	public static Integer[] initialize(int n) {
 		Integer[] numbers = new Integer[n];
