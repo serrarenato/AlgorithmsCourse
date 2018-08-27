@@ -14,7 +14,7 @@ public class InsertionSort {
 					break;
 			}
 		}
-		System.out.println("NUmber of Interation" + interation);
+		System.out.println("Number of Interation: " + interation);
 	}
 
 	private static void exchange(Comparable[] a, int change, int to) {
