@@ -1,10 +1,6 @@
 package algorithms.week4.binaryheap;
 
-import java.util.Arrays;
-
-import algorithms.week2.insertionsort.InsertionSort;
-import algorithms.week2.shellsort.ShellSort;
-import algorithms.week3.mergesort.MergeSort;
+import java.util.HashMap;
 
 // Example of use LinkedList with Stack and Interator
 public class main {
@@ -23,7 +19,11 @@ public class main {
 		System.out.println("Remove item: "+bi.toString());
 		bi.insert(100);
 		System.out.println(bi.toString());
-		
+		Object o = new Object() {
+			public String name;
+			public String name2;
+		HashMap <String, Object> x = new HashMap();
+		}
 
 //ex: BinaryHeap [s=[null, 58, 20, 18, 4, 8, 10]]
 //		 58
